@@ -32,8 +32,8 @@ public class HeroControl : MonoBehaviour {
     [HideInInspector]
     public Rigidbody2D rb;
 
-    private float velocity;
-    private float horizontal;
+    public float velocity;
+    public float horizontal;
 
     // Use this for initialization
     void Start () {
@@ -83,6 +83,7 @@ public class HeroControl : MonoBehaviour {
         velocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("VelocityY", rb.velocity.y);
 
+        /**
         float desiredMove = horizontalMoveForce;
         if (!grounded)
         {
@@ -90,7 +91,24 @@ public class HeroControl : MonoBehaviour {
         }
         desiredMove = Mathf.Clamp(velocity + desiredMove, 0f, maxHorizontalVelocity);
         
-        rb.velocity = new Vector2(desiredMove * horizontal, rb.velocity.y);
+        rb.velocity = new Vector2(desiredMove * horizontal, rb.velocity.y);**/
+
+
+        float xVelocity = rb.velocity.x + (1f * horizontal);
+
+        if (horizontal == 0f)
+        {
+            if (rb.velocity.x > 0f)
+            {
+                xVelocity = Mathf.Clamp(rb.velocity.x - 3f, 0f, 1000f);
+            } else
+            {
+                xVelocity = Mathf.Clamp(rb.velocity.x + 3f, -1000, 0f);
+            }
+        }
+        xVelocity = Mathf.Clamp(xVelocity, -maxHorizontalVelocity, maxHorizontalVelocity);
+
+        rb.velocity = new Vector2(xVelocity, rb.velocity.y);
     }
 
     public void ChargeJump()
@@ -113,7 +131,7 @@ public class HeroControl : MonoBehaviour {
     {
         Camera camera = Camera.main;
 
-        camera.gameObject.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().enabled = false;
+        // camera.gameObject.GetComponent<UnityStandardAssets._2D.Camera2DFollow>().enabled = false;
 
         alive = false;
 
