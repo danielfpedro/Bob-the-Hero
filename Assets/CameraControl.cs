@@ -5,9 +5,15 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour {
 
     public Transform target;
+
     public float xOffset;
+    public float yOffset = 0f;
+
+    public float yDeadZone;
+
     public float xSmooth;
     public float ySmooth;
+    public float horizontalDump;
 
     public float lastTargetXPosition;
 
@@ -17,32 +23,33 @@ public class CameraControl : MonoBehaviour {
 
     public Transform yTopBoundary;
     public Transform yBottomBoundary;
-    public float yOffset;
+    
+    public bool lastTargetFacing;
+
+    private float dumpCurrentVelocity = 0f;
+
+    public float changeRate = 2f;
+    private float nextMove;
+
+    private float lastXCamera;
+
+    public float changeDelay = .3f;
+
+    public float deadzoneUp = 0f;
+    public float lastDeadUp = 0;
 
     // Use this for initialization
     void Start () {
-        transform.position = target.position;
-	}
+        transform.position = new Vector3(target.position.x, target.position.y + yOffset, target.position.z - 1f);
+        deadzoneUp = transform.position.y;
+        lastDeadUp = deadzoneUp;
+    }
     private void FixedUpdate()
     {
-        /**
-        float xMove = Mathf.Lerp(transform.position.x, target.position.x + xOffset, xSmooth);
-        // float yMove = Mathf.Lerp(transform.position.x, transform.position.y, .5f);
-        
-        Vector2 hey = yTopBoundary.TransformPoint(yTopBoundary.position);
-        Vector2 heyBottom = yBottomBoundary.TransformPoint(yBottomBoundary.position);
-
-        Vector2 targetPositionTransformed = target.TransformPoint(target.position);
-
-        float yMove = Mathf.Lerp(transform.position.y, target.position.y, .1f);
-        if (targetPositionTransformed.y <= hey.y && targetPositionTransformed.y >= heyBottom.y)
-        {
-            yMove = Mathf.Lerp(transform.position.y, transform.position.y, .1f);
-        }**/
-
-
         float xMove = target.position.x;
-        if (target.GetComponent<HeroControl>().facingRight == true)
+
+        bool targetFacingRight = target.GetComponent<HeroControl>().facingRight;
+        if (targetFacingRight == true)
         {
             xMove += xOffset;
         } else
@@ -51,21 +58,60 @@ public class CameraControl : MonoBehaviour {
         }
 
         // xMove = Mathf.Lerp(transform.position.x, xMove, xSmooth);
-        xMove = Mathf.Clamp(xMove, limitLeft.position.x, limitRight.position.x);
-        float tey = 0f;
-        xMove = Mathf.SmoothDamp(transform.position.x, xMove, ref tey, .2f);
+        float vert = Camera.main.orthographicSize;
+        float hori = vert * Screen.width / Screen.height;
+        float maxX = limitRight.position.x - hori;
+        float minX = limitLeft.position.x + hori;
 
-        float yMove = Mathf.Lerp(transform.position.y, target.position.y, ySmooth);
-        yMove = Mathf.Clamp(yMove, limitBottom.position.y, 5000f);
+        xMove = Mathf.SmoothDamp(transform.position.x, xMove, ref dumpCurrentVelocity, horizontalDump);
 
+        float yMove = transform.position.y;
+        Vector2 targetTey = Camera.main.WorldToScreenPoint(target.position);
+        Vector2 camTey = Camera.main.WorldToScreenPoint(transform.position);
+        float camHeight = Camera.main.orthographicSize * 2f;
+
+        if (target.position.y < (transform.position.y - yDeadZone) || targetTey.y > (camTey.y - camHeight + yDeadZone))
+        {
+            // deadzoneUp = Mathf.Lerp(lastDeadUp, target.position.y + yDeadZone, .1f);
+            yMove = Mathf.Lerp(transform.position.y, target.position.y + yOffset, .1f); ;
+        }
+
+        nextMove += Time.deltaTime;
+        
+        if (lastTargetFacing != targetFacingRight)
+        {
+
+            nextMove = 0f;
+        }
+
+        bool stopped = false;
+        if (lastTargetXPosition == target.position.x)
+        {
+            stopped = true;
+        }
+
+        float seconds = nextMove % 60;
+
+        if (seconds <= changeDelay)
+        {
+            xMove = lastXCamera;
+
+        }
+
+        xMove = Mathf.Clamp(xMove, minX, maxX);
         transform.position = new Vector3(xMove, yMove, -1f);
 
+
         lastTargetXPosition = target.position.x;
+        lastTargetFacing = targetFacingRight;
+        lastXCamera = transform.position.x;
+
+        lastDeadUp = deadzoneUp;
     }
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        // Gizmos.DrawWireCube(transform.position, new Vector2(3f, yDeadZone));
+        Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y), new Vector2(3f, yDeadZone));
     }
 }

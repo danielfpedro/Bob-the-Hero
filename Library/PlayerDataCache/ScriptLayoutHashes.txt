@@ -2,7 +2,9 @@ WindowsStandalone
 PlayerPath?
 C:/Users/Daniel Pedro/Desktop/Bob Te Hero/Bob Te Hero.exe
 SceneListBegin?
-Assets/Scenes/SampleScene.unity
+Assets/Daniel/Scenes/SampleScene.unity
+Assets/Daniel/Scenes/Camera.unity
+Assets/Scenes/Level.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Pauser
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
@@ -17,7 +19,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 30afa8783a8bbee2e465ec9ce1efaee2 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 607d64d2c4bc76ac9876e6f7b9cc7edf UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-ba0dcf8bd7744f3320f6fbddb0fbea46 Assembly-CSharp.dll:.HeroControl
+1545d564a9809302224449ed5760e5e0 Assembly-CSharp.dll:.HeroControl
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 49cd62a578efc0a599b810a2b66cd49c UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -125,6 +127,7 @@ ae289d5889b6425001e5b425e6e39478 Assembly-CSharp.dll:.Remover
 ed3f6bd27701553db1904f1c59b3180a Assembly-CSharp.dll:.BackgroundPropSpawner
 51df51ce5bc6c5914f837b8dad6925cb Assembly-CSharp.dll:.FollowPlayer
 ea21d35e00c800673c8a9a853c9c2413 Assembly-CSharp.dll:.PlayerHealth
+7912af0f01f49196408aa0938646d292 Assembly-CSharp.dll:.CameraControl
 f77acaff45abbd72a5302b81ed4db8f7 Assembly-CSharp.dll:.Enemy
 3a7ea88693e7dbc33727514ecdeb3444 Assembly-CSharp.dll:.LayBombs
 55d46e4fc3e0a5a4e10d3c142eb63d50 Assembly-CSharp.dll:.BackgroundParallax
@@ -174,4 +177,3 @@ f61b7b395cd5f8e3efc57033b43434d0 Assembly-CSharp.dll:.TriggerGoUp
 5a0cfcdac8963398ab88e7af47fe6659 Assembly-CSharp.dll:.ScoreShadow
 c8c7c1d99415de995189ca6f34903980 Assembly-CSharp.dll:.Bomb
 307d9f491fea791345eb6aa66e84c179 Assembly-CSharp.dll:.CameraFollow
-099e8bef3676b4a7c0d7a1cbca3de26c Assembly-CSharp.dll:.CameraControl

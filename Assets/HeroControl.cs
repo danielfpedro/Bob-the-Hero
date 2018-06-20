@@ -71,6 +71,8 @@ public class HeroControl : MonoBehaviour {
             Jump();
             // animator.SetTrigger("ChargeJump");
         }
+
+        animator.SetFloat("HorizontalAxis", Mathf.Abs(horizontal));
     }
 
     private void FixedUpdate()
@@ -93,9 +95,17 @@ public class HeroControl : MonoBehaviour {
         
         rb.velocity = new Vector2(desiredMove * horizontal, rb.velocity.y);**/
 
+        float desiredHorizontal = 0f;
+        if (horizontal > 0f)
+        {
+            desiredHorizontal = 1f;
+        } else if (horizontal < 0f) {
+            desiredHorizontal = -1f;
+        }
 
-        float xVelocity = rb.velocity.x + (1f * horizontal);
+        float xVelocity = desiredHorizontal * horizontalMoveForce;
 
+        /**
         if (horizontal == 0f)
         {
             if (rb.velocity.x > 0f)
@@ -105,10 +115,13 @@ public class HeroControl : MonoBehaviour {
             {
                 xVelocity = Mathf.Clamp(rb.velocity.x + 3f, -1000, 0f);
             }
-        }
-        xVelocity = Mathf.Clamp(xVelocity, -maxHorizontalVelocity, maxHorizontalVelocity);
+        }**/
+        // xVelocity = Mathf.Clamp(xVelocity, -maxHorizontalVelocity, maxHorizontalVelocity);
 
         rb.velocity = new Vector2(xVelocity, rb.velocity.y);
+
+        animator.SetFloat("VelocityY", rb.velocity.y);
+        animator.SetFloat("VelocityX", velocity);
     }
 
     public void ChargeJump()
@@ -117,7 +130,7 @@ public class HeroControl : MonoBehaviour {
     }
     public void Jump()
     {
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + jumpForce);
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
     }
 
@@ -138,7 +151,7 @@ public class HeroControl : MonoBehaviour {
         rb.constraints = RigidbodyConstraints2D.None;
         rb.velocity = new Vector2(0f, 12f);
         rb.AddTorque(60f);
-        Destroy(GetComponent<CircleCollider2D>());
+        Destroy(GetComponent<BoxCollider2D>());
 
         Invoke("RestartLevel", 3);
 
