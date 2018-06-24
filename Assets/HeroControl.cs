@@ -153,8 +153,9 @@ public class HeroControl : MonoBehaviour {
         rb.AddTorque(60f);
         Destroy(GetComponent<BoxCollider2D>());
 
-        Invoke("RestartLevel", 3);
+        Camera.main.GetComponent<PerfectCamera>().enabled = false;
 
+        Invoke("RestartLevel", 3);
     }
 
     public void RestartLevel()

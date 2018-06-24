@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Daniel/Scenes/Camera.unity
+    path: Assets/Daniel/Scenes/test_Camera.unity
     guid: 7dff187cef9c73d42ab65a01008f1959
   - enabled: 0
     path: Assets/Scenes/Level.unity
@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Daniel/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Daniel/Scenes/Tutorial.unity
+    guid: 58c48685b3ddd684996819c6a09ad5c8
   - enabled: 1
     path: Assets/Daniel/Scenes/Pilot.unity
     guid: a9c8fdf492a038344bc8eb4adb997f85

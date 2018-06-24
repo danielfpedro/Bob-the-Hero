@@ -8,11 +8,10 @@ public class EnableToggle : MonoBehaviour {
     public bool invert = false;
 
     private BoxCollider2D boxCollider;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
     }
 

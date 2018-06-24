@@ -12,6 +12,8 @@ public class TouchTrigger : MonoBehaviour {
 
     private Animator animator;
 
+    public GameObject target;
+
 
 	// Use this for initialization
 	void Start () {
@@ -37,15 +39,20 @@ public class TouchTrigger : MonoBehaviour {
             if (needsButtonBePushed)
             {
                 inContact = true;
+                target = null;
             }
             else
             {
                 isOn = true;
+                target = collision.gameObject;
                 if (oneShot)
                 {
                     Destroy(boxCollider);
                 }
             }
+        } else
+        {
+            target = null;
         }
 
     }

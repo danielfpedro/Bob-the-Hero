@@ -321,11 +321,17 @@
     <Compile Include="Assets\EnableToggle.cs" />
     <Compile Include="Assets\FollowCamera2D.cs" />
     <Compile Include="Assets\GameControl.cs" />
+    <Compile Include="Assets\GameManager.cs" />
     <Compile Include="Assets\GameUIControl.cs" />
+    <Compile Include="Assets\Goal.cs" />
     <Compile Include="Assets\GoTo.cs" />
     <Compile Include="Assets\HeroControl.cs" />
+    <Compile Include="Assets\InGameMenu.cs" />
     <Compile Include="Assets\KickerTrigger.cs" />
+    <Compile Include="Assets\MenuFinish.cs" />
+    <Compile Include="Assets\PauseMenuController.cs" />
     <Compile Include="Assets\PerfectCamera.cs" />
+    <Compile Include="Assets\Rotate.cs" />
     <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
     <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
     <Compile Include="Assets\Scripts\Bomb.cs" />
@@ -348,6 +354,7 @@
     <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Switcher.cs" />
+    <Compile Include="Assets\Throw.cs" />
     <Compile Include="Assets\TouchTrigger.cs" />
     <Compile Include="Assets\TriggerGoUp.cs" />
     <Compile Include="Assets\TriggerVanish.cs" />

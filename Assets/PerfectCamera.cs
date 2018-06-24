@@ -34,6 +34,14 @@ public class PerfectCamera : MonoBehaviour {
 
     public float diff;
 
+    public float traveledAfterChange = 0f;
+    public bool lastFacingRight;
+
+    public Vector3 lastTargetPosition;
+
+    public Transform minLeft;
+    public float minLeftFloat;
+
     // Use this for initialization
     void Start () {
         transform.position = new Vector3(target.position.x + lookAheadFactor, target.position.y + yOffset, -1);
@@ -47,6 +55,8 @@ public class PerfectCamera : MonoBehaviour {
         lastXPosition = target.position.x;
         lastXFacingRight = target.position.x;
         lastXFacingLeft = target.position.x;
+
+        minLeftFloat = minLeft.position.x + (GetComponent<Camera>().orthographicSize);
     }
 
     private void LateUpdate()
@@ -56,7 +66,7 @@ public class PerfectCamera : MonoBehaviour {
         {
             if (lastXPosition > target.position.x)
             {
-                facingRight = false;
+                facingRight = false; 
             }
             else
             {
@@ -64,8 +74,13 @@ public class PerfectCamera : MonoBehaviour {
             }
         }
 
+        if (lastFacingRight != facingRight)
+        {
+            traveledAfterChange = 0;
+        }
+
         float desiredLookAhead = (facingRight) ? lookAheadFactor : -lookAheadFactor;
-        float desiredX = (diff > lookAheadThreshold) ? target.position.x + desiredLookAhead : transform.position.x;
+        float desiredX = (traveledAfterChange > lookAheadThreshold) ? target.position.x + desiredLookAhead : transform.position.x;
         xMove = Mathf.Lerp(transform.position.x, desiredX, xSmooth * Time.deltaTime);
 
         // Y Move
@@ -80,15 +95,19 @@ public class PerfectCamera : MonoBehaviour {
             yMove = Mathf.Lerp(transform.position.y, target.position.y + yOffset, ySmooth * Time.deltaTime);
         }
 
+        xMove = Mathf.Clamp(xMove, minLeftFloat, xMove);
+
         transform.position = new Vector3(xMove, yMove, -1);
 
         if (Mathf.Round(transform.position.y * 100) / 100 == Mathf.Round(target.position.y + yOffset * 100) / 100)
             centeredY = true;
 
-        /**if (Mathf.Round(transform.position.x * 100) / 100 == Mathf.Round(target.position.x * 100) / 100)
-            centeredX = true;**/
+        Vector3 dist = lastTargetPosition - target.position;
+        traveledAfterChange += Mathf.Abs(dist.x);
 
+        lastTargetPosition = target.position;
         lastXPosition = target.position.x;
+
         if (facingRight)
         {
             lastXFacingRight = target.position.x;
@@ -96,6 +115,8 @@ public class PerfectCamera : MonoBehaviour {
         {
             lastXFacingLeft = target.position.x;
         }
+
+        lastFacingRight = facingRight;
     }
 
     void OnDrawGizmos()
