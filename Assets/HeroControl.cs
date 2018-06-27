@@ -155,11 +155,11 @@ public class HeroControl : MonoBehaviour {
 
         Camera.main.GetComponent<PerfectCamera>().enabled = false;
 
-        Invoke("RestartLevel", 3);
+        Invoke("RestartLevel", 2);
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(0);
+        GameManager.instance.RestartLevel();
     }
 }

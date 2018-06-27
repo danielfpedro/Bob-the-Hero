@@ -13,7 +13,7 @@ public class MenuFinish : MonoBehaviour {
     {
         if (Input.GetButton("Submit"))
         {
-            GameManager.GoToNextScene();
+            GameManager.instance.GoToNextScene();
         }
     }
 }

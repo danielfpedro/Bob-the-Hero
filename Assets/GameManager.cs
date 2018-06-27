@@ -6,13 +6,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    public static bool levelFinished = false;
+
 
     // Controla se o usuario está usando keyboard ou um controle
     public bool onController = false;
     public GameObject pauseMenu;
 
-    [SerializeField]
-    public string nextScene;
+    public int nextScene;
+    public int currentScene;
+    public int timeScaled = 0;
 
     private void Awake()
     {
@@ -20,14 +23,14 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);    // Ensures that there aren't multiple Singletons
 
         instance = this;
-
-        Time.timeScale = 1;
-        Cursor.visible = false;
     }
 
     // Use this for initialization
-    void Start () {	
-	}
+    void Start () {
+        levelFinished = false;
+        Time.timeScale = 1;
+        Cursor.visible = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,9 +40,14 @@ public class GameManager : MonoBehaviour {
         }
 
         // Pausando Jogo
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && levelFinished == false)
         {
             Pause();
+        }
+
+        if (levelFinished == true)
+        {
+            Time.timeScale = 0;
         }
     }
 
@@ -55,13 +63,13 @@ public class GameManager : MonoBehaviour {
         Time.timeScale = 1;
     }
 
-    public static void GoToNextScene()
+    public void GoToNextScene()
     {
-        SceneManager.LoadScene(GameManager.instance.nextScene);
+        SceneManager.LoadScene(nextScene);
     }
 
-    public static void RestartLevel()
+    public void RestartLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(currentScene);
     }
 }

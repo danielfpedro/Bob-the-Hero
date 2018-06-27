@@ -11,9 +11,9 @@ public class InGameMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("Submit"))
+        if (Input.GetButton("Submit") && GameManager.levelFinished != true)
         {
-            GameManager.RestartLevel();
+            // GameManager.RestartLevel();
         }	
 	}
 }
