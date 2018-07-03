@@ -7,12 +7,20 @@ public class TouchTrigger : MonoBehaviour {
     public BoxCollider2D boxCollider;
     public bool oneShot = true;
     public bool isOn = false;
+    public bool changed = false;
+    private bool lastState = false;
     public bool needsButtonBePushed = false;
     private bool inContact = false;
 
     private Animator animator;
 
     public GameObject target;
+
+    public float delay = 0f;
+
+    private bool isDead = false;
+
+    private bool wating = false;
 
 
 	// Use this for initialization
@@ -22,9 +30,14 @@ public class TouchTrigger : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown("Fire2") && inContact)
+        if (Input.GetButtonDown("Fire2") && inContact && !isDead)
         {
-            isOn = !isOn;
+            if (oneShot)
+            {
+                isDead = true;
+            }
+            CancelInvoke();
+            Invoke("ChangeState", delay);
         }
         if (animator != null)
         {
@@ -43,24 +56,39 @@ public class TouchTrigger : MonoBehaviour {
             }
             else
             {
-                isOn = true;
-                target = collision.gameObject;
+                if (!isDead)
+                {
+                    CancelInvoke();
+                    Invoke("ChangeState", delay);
+                }
                 if (oneShot)
                 {
-                    Destroy(boxCollider);
+                    isDead = true;
                 }
             }
-        } else
-        {
-            target = null;
         }
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!needsButtonBePushed)
-            isOn = false;
-        else
-            inContact = false;
+        if (!isDead)
+        {
+            if (!needsButtonBePushed)
+            {
+                CancelInvoke();
+                Invoke("ChangeState", delay);
+            }
+            else
+                inContact = false;
+        }
+    }
+
+    private void ChangeState()
+    {
+        isOn = !isOn;
+        if (oneShot)
+        {
+            Destroy(boxCollider);
+        }
     }
 }

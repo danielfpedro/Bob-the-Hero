@@ -17225,8 +17225,10 @@ MonoBehaviour:
   boxCollider: {fileID: 0}
   oneShot: 1
   isOn: 0
+  changed: 0
   needsButtonBePushed: 0
   target: {fileID: 0}
+  delay: 1
 --- !u!1 &456624987
 GameObject:
   m_ObjectHideFlags: 0
@@ -17292,7 +17294,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4970491461322106, guid: c082765a7baca02488fd8769dd10748b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.59
+      value: 1.82
       objectReference: {fileID: 0}
     - target: {fileID: 4970491461322106, guid: c082765a7baca02488fd8769dd10748b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -17653,8 +17655,10 @@ MonoBehaviour:
   boxCollider: {fileID: 766342486}
   oneShot: 1
   isOn: 0
+  changed: 0
   needsButtonBePushed: 0
   target: {fileID: 0}
+  delay: 0
 --- !u!61 &766342486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18284,8 +18288,10 @@ MonoBehaviour:
   boxCollider: {fileID: 1098164848}
   oneShot: 1
   isOn: 0
+  changed: 0
   needsButtonBePushed: 0
   target: {fileID: 0}
+  delay: 0
 --- !u!4 &1098164850
 Transform:
   m_ObjectHideFlags: 0
@@ -18318,8 +18324,10 @@ MonoBehaviour:
   boxCollider: {fileID: 1099600994}
   oneShot: 1
   isOn: 0
+  changed: 0
   needsButtonBePushed: 0
   target: {fileID: 0}
+  delay: 0
 --- !u!61 &1099600994 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 61448705802018592, guid: 8975ad24d40e86c47864c521610c9b95,
@@ -18473,6 +18481,7 @@ MonoBehaviour:
   move: {x: 16.43, y: 0}
   initialPosition: {x: 0, y: 0}
   delay: 0
+  time: 0
   smooth: 3
   trigger: {fileID: 1098164849}
   triggerState: 0
@@ -19141,8 +19150,10 @@ MonoBehaviour:
   boxCollider: {fileID: 1821585512}
   oneShot: 0
   isOn: 0
+  changed: 0
   needsButtonBePushed: 1
   target: {fileID: 0}
+  delay: 0
 --- !u!95 &1821585514
 Animator:
   serializedVersion: 3

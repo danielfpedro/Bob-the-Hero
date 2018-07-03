@@ -10,7 +10,7 @@ public class GoTo : MonoBehaviour {
     public Vector2 initialPosition;
 
     public float delay = 0;
-    private float time = 0;
+    public float time = 0;
 
     public float smooth = 3f;
     private bool lastState;
@@ -26,24 +26,21 @@ public class GoTo : MonoBehaviour {
 	void Update () {
         if (trigger != null)
         {
-            if (trigger.isOn)
-            {
-                StartCoroutine(MoveSmooth(new Vector2(initialPosition.x + move.x, initialPosition.y + move.y)));
-                Invoke("MoveSmooth", delay);
-            }
-            else
-            {
-                StartCoroutine(MoveSmooth(initialPosition));
-                Invoke("MoveSmooth", 0);
-            }
+            triggerState = trigger.isOn;
         }
-
-        Debug.Log(trigger.isOn);
+        
+        if (triggerState == true)
+        {
+            MoveSmooth(new Vector2(initialPosition.x + move.x, initialPosition.y + move.y));
+        }
+        else
+        {
+            MoveSmooth(initialPosition);
+        }
     }
 
-    private IEnumerator MoveSmooth(Vector2 goTo)
+    private void MoveSmooth(Vector2 goTo)
     {
-        yield return new WaitForSeconds(delay);
         transform.position = Vector2.MoveTowards(transform.position, goTo, smooth * Time.deltaTime);
     }
 

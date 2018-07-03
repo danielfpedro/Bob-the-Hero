@@ -121,7 +121,7 @@ fc061f3ae8a876c0687e86378d4a447c UnityEngine.Networking.dll:UnityEngine.Networki
 18d958c1e87f683dd648ef91e3567627 Assembly-CSharp.dll:.Goal
 a3a7b6874ad93bcb0219703983c415f8 Assembly-CSharp.dll:.TriggerVanish
 ca17c6ef9fd0c53b1a26fccbaf70494a Assembly-CSharp.dll:.Destroyer
-674f1065eb4ecaf8758b928ca51cb09f Assembly-CSharp.dll:.GoTo
+d1ebd48329e2945bc0d92cf531960437 Assembly-CSharp.dll:.GoTo
 382b8ef512fa8d6108723a01b57af65b UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 d22c788799ee45d8676254eccf20e8b8 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 d75dc834c5dec688db75a55a1724c90f UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -192,7 +192,7 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 5cbab06d4665e1f12ac7d37549ff3795 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-1a675d4f2498ae272fd8eb01bfddc5f2 Assembly-CSharp.dll:.TouchTrigger
+78af1c0a883f6692678ab75852203048 Assembly-CSharp.dll:.TouchTrigger
 e7243432dd281e72011751efc287823c Assembly-CSharp-firstpass.dll:UnityStandardAssets._2D.Camera2DFollow
 5a52c8d94348ff1459180e964711d888 Assembly-CSharp.dll:.SetParticleSortingLayer
 214ec29fd81ddb50491ba52d645a015b Assembly-CSharp.dll:.TriggerGoUp
