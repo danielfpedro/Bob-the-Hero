@@ -53,3 +53,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onController: 0
   pauseMenu: {fileID: 0}
+  nextScene: 1
+  currentScene: 0
+  timeScaled: 0
+  isLevelStarted: 0
+  initialMenu: {fileID: 0}

@@ -11,8 +11,9 @@ public class MenuFinish : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButton("Submit"))
+        if (Input.GetButtonDown("Submit"))
         {
+            PlayerPrefs.SetFloat("LevelStarted", 0);
             GameManager.instance.GoToNextScene();
         }
     }

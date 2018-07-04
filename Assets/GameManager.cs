@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     public int currentScene;
     public int timeScaled = 0;
 
+    public bool isLevelStarted = false;
+    public GameObject initialMenu;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -28,19 +31,38 @@ public class GameManager : MonoBehaviour {
     // Use this for initialization
     void Start () {
         levelFinished = false;
-        Time.timeScale = 1;
         Cursor.visible = false;
+
+        if (PlayerPrefs.GetFloat("LevelStarted", 0) == 0)
+        {
+            initialMenu.SetActive(true);
+            Time.timeScale = 0;
+            PlayerPrefs.SetFloat("LevelStarted", 1);
+            isLevelStarted = false;
+        } else
+        {
+            Time.timeScale = 1;
+            isLevelStarted = true;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (isLevelStarted == false && Input.GetButtonDown("Submit"))
+        {
+            initialMenu.SetActive(false);
+            isLevelStarted = true;
+            Resume();
+        }
+
         if (Input.anyKey)
         {
             onController = false;
         }
 
         // Pausando Jogo
-        if (Input.GetButtonDown("Pause") && levelFinished == false)
+        if (Input.GetButtonDown("Pause") && levelFinished == false && isLevelStarted == true)
         {
             Pause();
         }

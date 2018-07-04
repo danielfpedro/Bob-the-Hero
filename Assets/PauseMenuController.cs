@@ -15,5 +15,9 @@ public class PauseMenuController : MonoBehaviour {
         {
             GameManager.Resume();
         }
-	}
+        if (Input.GetButtonDown("Jump"))
+        {
+            GameManager.instance.RestartLevel();
+        }
+    }
 }

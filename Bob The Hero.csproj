@@ -293,10 +293,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Bob The Hero.Plugins.csproj">
-      <Project>{D3C91B94-A239-B07F-699B-7FEC2546DB9B}</Project>
-      <Name>Bob The Hero.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.StandardEvents.csproj">
       <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
       <Name>UnityEditor.StandardEvents</Name>
@@ -328,31 +324,11 @@
     <Compile Include="Assets\HeroControl.cs" />
     <Compile Include="Assets\InGameMenu.cs" />
     <Compile Include="Assets\KickerTrigger.cs" />
+    <Compile Include="Assets\MainMenuController.cs" />
     <Compile Include="Assets\MenuFinish.cs" />
     <Compile Include="Assets\PauseMenuController.cs" />
     <Compile Include="Assets\PerfectCamera.cs" />
     <Compile Include="Assets\Rotate.cs" />
-    <Compile Include="Assets\Scripts\BackgroundParallax.cs" />
-    <Compile Include="Assets\Scripts\BackgroundPropSpawner.cs" />
-    <Compile Include="Assets\Scripts\Bomb.cs" />
-    <Compile Include="Assets\Scripts\BombPickup.cs" />
-    <Compile Include="Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Scripts\Destroyer.cs" />
-    <Compile Include="Assets\Scripts\Enemy.cs" />
-    <Compile Include="Assets\Scripts\FollowPlayer.cs" />
-    <Compile Include="Assets\Scripts\Gun.cs" />
-    <Compile Include="Assets\Scripts\HealthPickup.cs" />
-    <Compile Include="Assets\Scripts\LayBombs.cs" />
-    <Compile Include="Assets\Scripts\Pauser.cs" />
-    <Compile Include="Assets\Scripts\PickupSpawner.cs" />
-    <Compile Include="Assets\Scripts\PlayerControl.cs" />
-    <Compile Include="Assets\Scripts\PlayerHealth.cs" />
-    <Compile Include="Assets\Scripts\Remover.cs" />
-    <Compile Include="Assets\Scripts\Rocket.cs" />
-    <Compile Include="Assets\Scripts\Score.cs" />
-    <Compile Include="Assets\Scripts\ScoreShadow.cs" />
-    <Compile Include="Assets\Scripts\SetParticleSortingLayer.cs" />
-    <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Switcher.cs" />
     <Compile Include="Assets\Throw.cs" />
     <Compile Include="Assets\TouchTrigger.cs" />
