@@ -2,9 +2,7 @@ WindowsStandalone
 PlayerPath?
 C:/Users/Daniel Pedro/Desktop/Bob The Hero/Bob The Hero.exe
 SceneListBegin?
-Assets/Daniel/Scenes/MainMenu.unity
-Assets/Daniel/Scenes/Tutorial.unity
-Assets/Daniel/Scenes/Pilot.unity
+Assets/Daniel/Scenes/3DTest.unity
 SceneListEnd?
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 7b803eb2910e9b4cd5e521ae07b9f7d6 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -88,6 +86,7 @@ a44114bd4fa541174f78b4bb92bacb48 UnityEngine.UI.dll:UnityEngine.EventSystems.Sta
 e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 2d58ca16854b99daea8c45e9c0f367b7 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+98f0dfd2378729c082be8d0dd8ea0d71 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingBehaviour
 04cc155ce5b564c90f74516f0154e41a Assembly-CSharp.dll:.KickerTrigger
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -128,11 +127,16 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 96f3ea9f23b6f08e60710ebb4af49174 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Bob3DController
+bfd7b619a0e2b634266d62bdf51d59dc Assembly-CSharp.dll:.CharacterAnimate
 9d66f1977f499941a41b32d52168c624 Assembly-CSharp.dll:.GameManager
 08f97126d54c43de74eb8a303092ad56 Assembly-CSharp.dll:.Rotate
 f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
+bea5adeacab92f7796f6b36ca490eac8 Assembly-CSharp.dll:.PlayerMovement
 6b2a742abb411aace31cb67e8f465a43 Assembly-CSharp.dll:.Throw
+0bdcdbf62a0270cae77c293f04a9f41f Assembly-CSharp.dll:.TriggerController
 40d62e97d97d9419cef8a646af6176f3 Assembly-CSharp.dll:.CameraControl
+e2bc6ef764fff21ff1e9db5ef924d331 Assembly-CSharp.dll:.ExampleWheelController
 486cd95c82d8305219c352c06b776e1f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.InGameMenu
 eaf0bcdb10d442a4029d615f41d09957 Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -176,8 +180,10 @@ e1ea12ca952c81d81a9a21fdf34446ed UnityEngine.HoloLens.dll:UnityEngine.EventSyste
 98d69a140ec0084cde3b6a5e09aea295 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 dfd33ff9ae3ce8d7ca1f22b475ec2387 UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 5cbab06d4665e1f12ac7d37549ff3795 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
+713f094d38dde97adcca89d1fad847c0 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 78af1c0a883f6692678ab75852203048 Assembly-CSharp.dll:.TouchTrigger
+9df717a489a184005d8940d1c3b6da12 Assembly-CSharp.dll:.CharacterController2D
 214ec29fd81ddb50491ba52d645a015b Assembly-CSharp.dll:.TriggerGoUp
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.BoundaryKill
@@ -188,3 +194,4 @@ e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.PauseMenuController
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.GameUIControl
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
+486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Stone
